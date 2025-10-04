@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Limelight&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +15,7 @@
 }
 
 body{
-    background: #081b29;
+    background: #e7e2e2;
     color: #ededed;
 }
 
@@ -29,16 +34,16 @@ body{
 
 
 .logo{
-    font-size: 25px;
-    color: #ededed;
+    font-size: 35px;
+    color: #112D4E;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 800;
     font-family: 'limelight', sans-serif;
 }
 
 .navbar a{
-    font-size: 18px;
-    color: #ededed;
+    font-size: 25px;
+    color: #112D4E;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
@@ -46,17 +51,28 @@ body{
 }
 
 .navbar a:hover,
-.navbar a.active{
-
+.navbar a.active {
     color: #00abf0;
+    background: #e7e2e2;
+    border-radius: 5px;
+    
+    transition: 0.3s;
+}
 
+.navbar a:hover .nav-text,
+.navbar a.active .nav-text {
+    transform: scale(1.18);
+    display: inline-block;
+    transition: transform 0.3s;
 }
 
 .home{
-    height: 100vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     padding: 0 10%;
+    color: black;
+    margin-top: 100px;
 }
 
 .home-content{
@@ -76,9 +92,10 @@ body{
 }
 .home-content p{
  
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 200;
     margin: 20px 0 40px;
+    color: #112D4E;
 }
 .home-content .btn-box{
     display: flex;
@@ -100,7 +117,7 @@ body{
     border: 2px solid #00abf0;
     border-radius: 8px;
     font-size: 19px;
-    color: #081b29;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
@@ -139,7 +156,7 @@ body{
     left: 0;
     width: 0%;
     height: 100%;
-    background: #081b29 ;
+    background: #ffffff ;
     z-index: -1;
     transition: .5s;
 
@@ -151,34 +168,120 @@ body{
 
 }
 
-.home-sci{
-    position: absolute;
-    bottom: 40px;
-    width: 170px;
-    
+
+
+
+
+.carousel{
+    margin: 100px auto;
+    width: 90%;
+    border: 5px solid #feffff;
     display: flex;
-    justify-content: space-between;
+    overflow-x: hidden;
+    margin-left: 10%;
+    border-color: #081b29;
+    background: #112D4E;
+}
+.carousel::-webkit-scrollbar{
+    display: none;
 }
 
-.home-sci a{
-    position: relative;
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: slide 10s infinite linear;
+}
+
+.card{
+    flex:0 0 200px;
+    height: 350px;
+    padding: 0 1em;
+    background: #ffffff;
+    font-size: 1rem;
+    border-radius: .2em;
+    text-align: center;
+    line-height: 150px;
+    
+}
+
+
+
+
+@keyframes slide{
+from{
+    transform: translateX(0);
+}
+to {
+    transform: translateX(-80%);
+}
+}
+
+#about{
+    background: #f5f5f5;
+    color: #112D4E;
+    padding: 100px;
+    min-height: 60vh;
+    font-weight: 700;
+}
+#about p{
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+#about h2{
+    font-size: 46px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    
+}
+
+
+#projects{
+    font-size: 46px;
+    padding: 100px 10%;
+    min-height: 60vh;
+    background: #112D4E;
+    color: #e7e2e2;
+}
+#projects p{
+    font-size: 16px;
+}
+
+
+#socials{
+    padding: 100px 10%;
+    min-height: 60vh;
+    background: #f5f5f5;
+    color: #112D4E;
+    text-align: center;
+    font-size: 46px;
+}
+
+#socials p{
+    font-size: 26px;
+}
+
+#socials a{
+  position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     background: transparent;
-    border: 2px solid #00abf0;
+    border: 3px solid #00abf0;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 40px;
     color: #00abf0;
     text-decoration: none;
     z-index: 1;
     overflow: hidden;
     transition: .5s;
+    margin:  100px;
 }
-
-.home-sci a::before{
+#socials a::before{
     content: '';
     position: absolute;
     top: 0;
@@ -190,12 +293,8 @@ body{
     transition: .5s ;
 }
 
- .home-sci a:hover{
-    color: #081b29;
+ #socials a:hover{
+    color: #ffffff;
+    background: #00abf0;
  }
-
-
-.home-sci a:hover::before{
- width: 100%;
-
-}
+ 
